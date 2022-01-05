@@ -16,14 +16,17 @@ export class App extends Component {
           <Link to="/page2">Page 2</Link>
         </nav>
         <Switch>
-          <Route path="/page1">
+          <Route exact path="/">
+            <Redirect to="/page1" />
             <Page1 />
           </Route>
-          <Route path="/page2">
+          <Route exact path="/page1">
+            <Page1 />
+          </Route>
+          <Route exact path="/page2">
             <Page2 />
           </Route>
           <Route path="*">
-            {/* <Redirect to="/page1" />:<NotFound /> */}
             <NotFound />
           </Route>
         </Switch>
